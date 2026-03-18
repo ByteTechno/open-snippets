@@ -22,31 +22,37 @@ This project is not just a demo — it shows real backend development skills:
 
 ### 🏠 Home Page
 Discover all shared snippets at a glance.
+
 ![Home Page](./screenshots/home.png)
 
 ---
 
 ### 🔐 Login Page
 Secure access to your personal code collection.
+
 ![Login Page](./screenshots/login.png)
 
 ---
 
 ### ➕ Add Snippet
 Easy-to-use interface for adding new code snippets.
+
 ![Add Snippet Page](./screenshots/add.png)
 
 ---
 
 ### 📄 Snippet Detail
 Full view of code snippets with syntax highlighting.
+
 ![Snippet Detail Page](./screenshots/detail.png)
 
 ---
 
 ## 🌐 Live Demo
 
-👉 [https://your-project-name.onrender.com](https://your-project-name.onrender.com)
+👉 https://open-snippets.onrender.com
+
+⚠️ Free tier may take ~30 seconds to wake up if inactive.
 
 ---
 
