@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Home - OpenSnippets{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <h2 class="page-title">All Snippets</h2>
+    <p class="page-subtitle">Discover code snippets shared by others or leave your own mark.</p>
+
+    <form method="GET" action="/home" class="search-form">
+        <input type="text" name="q" placeholder="Search title or code content..." value="{{ q }}">
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+{% if snippets %}
+{% for snippet in snippets %}
+<div class="snippet-card">
+    <div class="snippet-header">
+        <h3 class="snippet-title">
+            <a href="/snippet/{{ snippet['id'] }}">{{ snippet['title'] }}</a>
+        </h3>
+        <p class="snippet-meta">Author: {{ snippet['username'] }} · Posted at: {{ snippet['created_at'] }}</p>
+    </div>
+
+    <pre><code>{{ snippet['content'][:120] }}{% if snippet['content']|length > 120 %}...{% endif %}</code></pre>
+
+    <div class="snippet-actions">
+        <a href="/snippet/{{ snippet['id'] }}" class="btn btn-secondary">View Details</a>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<div class="empty-state">
+    <p>No snippets found.</p>
+</div>
+{% endif %}
+
+{% endblock %}

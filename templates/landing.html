@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}OpenSnippets - Share Your Code{% endblock %}
+{% block body_class %}landing-page{% endblock %}
+{% block shell_class %}landing-shell{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+<section class="hero-section hero-fullscreen hero-plain">
+  <div class="hero-badge">Code Sharing Platform</div>
+
+  <h1 class="hero-title">Build Your Code Presence</h1>
+
+  <p class="hero-subtitle">
+    OpenSnippets is a clean, modern, developer-focused platform for sharing code snippets.
+    Capture inspirations, showcase your work, and build your technical footprint.
+  </p>
+
+  <div class="hero-actions">
+    <a href="/login" class="btn">Login Now</a>
+    <a href="/register" class="btn btn-secondary">Join for Free</a>
+  </div>
+</section>
+
+<section class="intro-section">
+  <div class="section-heading center-heading">
+    <h2>Why OpenSnippets</h2>
+    <p>A clean, modern, and developer-centric platform for code display and accumulation.</p>
+  </div>
+
+  <div class="intro-grid">
+    <div class="intro-card">
+      <h3>⚡ Quick Capture</h3>
+      <p>Save your code snippets instantly and never lose an inspiration again.</p>
+    </div>
+
+    <div class="intro-card">
+      <h3>💻 Developer-Centric</h3>
+      <p>Dark mode, code highlighting, and clean layouts designed for technical presence.</p>
+    </div>
+
+    <div class="intro-card">
+      <h3>🚀 Continuous Growth</h3>
+      <p>Turn scattered code into a personal portfolio that grows with your career.</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

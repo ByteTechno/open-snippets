@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ snippet['title'] }} - OpenSnippets{% endblock %}
+
+{% block content %}
+
+<div class="card">
+  <h2 class="page-title">{{ snippet['title'] }}</h2>
+
+  <div class="detail-meta">
+    <span>Author: {{ snippet['username'] }}</span>
+    <span>Posted at: {{ snippet['created_at'] }}</span>
+  </div>
+
+  <pre><code>{{ snippet['content'] }}</code></pre>
+
+  {% if session.get("user_id") == snippet['user_id'] %}
+  <div class="snippet-actions">
+    <a href="/edit/{{ snippet['id'] }}" class="btn">Edit this Snippet</a>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

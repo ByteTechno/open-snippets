@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}My Snippets - OpenSnippets{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <h2 class="page-title">My Snippets</h2>
+    <p class="page-subtitle">Manage all the code snippets you have shared.</p>
+</div>
+
+{% if snippets %}
+{% for snippet in snippets %}
+<div class="snippet-card">
+    <div class="snippet-header">
+        <h3 class="snippet-title">
+            <a href="/snippet/{{ snippet['id'] }}">{{ snippet['title'] }}</a>
+        </h3>
+        <p class="snippet-meta">Posted at: {{ snippet['created_at'] }}</p>
+    </div>
+
+    <pre><code>{{ snippet['content'][:120] }}{% if snippet['content']|length > 120 %}...{% endif %}</code></pre>
+
+    <div class="snippet-actions">
+        <a href="/snippet/{{ snippet['id'] }}" class="btn btn-secondary">View Details</a>
+        <a href="/edit/{{ snippet['id'] }}" class="btn">✏️ Edit</a>
+
+        <form action="/delete/{{ snippet['id'] }}" method="POST" class="inline-form"
+            onsubmit="return confirm('Are you sure you want to delete this snippet?');">
+            <button type="submit" class="btn btn-danger">🗑 Delete</button>
+        </form>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<div class="empty-state">
+    <p>You haven't posted any snippets yet.</p>
+</div>
+{% endif %}
+
+{% endblock %}

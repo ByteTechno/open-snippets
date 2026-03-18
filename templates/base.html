@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}OpenSnippets{% endblock %}</title>
+
+  <!-- highlight.js Dark Theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+
+  <div class="page-shell {% block shell_class %}{% endblock %}">
+    {% block header %}
+    {% if session.get("user_id") %}
+    <header class="site-header">
+      <div class="logo-area">
+        <a href="/home" class="logo">OpenSnippets</a>
+        <p class="tagline">Share your code. Build your presence.</p>
+      </div>
+
+      <nav class="nav-links">
+        <a href="/home">Code Square</a>
+        <a href="/add">Add Snippet</a>
+        <a href="/my-snippets">My Snippets</a>
+        <a href="/logout" class="nav-danger">Logout</a>
+      </nav>
+    </header>
+    {% endif %}
+    {% endblock %}
+
+    <main class="main-content">
+      {% block content %}
+      {% endblock %}
+    </main>
+  </div>
+
+  <!-- highlight.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+
+</body>
+
+</html>

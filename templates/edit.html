@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Snippet - OpenSnippets{% endblock %}
+
+{% block content %}
+
+<div class="card form-card">
+  <h2 class="page-title">Edit Code Snippet</h2>
+  <p class="page-subtitle">Update the title or content to keep it accurate.</p>
+
+  <form method="POST">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" value="{{ snippet['title'] }}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="content">Code Content</label>
+      <textarea id="content" name="content" required>{{ snippet['content'] }}</textarea>
+    </div>
+
+    <button type="submit">Save Changes</button>
+  </form>
+</div>
+
+{% endblock %}
